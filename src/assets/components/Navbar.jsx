@@ -8,11 +8,6 @@ function Navbar() {
           <img className="logo-img" src={logo} alt="Logo image" />
           Kanban Board
         </a>
-        <div className="nav-links">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-        </div>
-        <div className="sidebar"></div>
       </nav>
     </>
   );
