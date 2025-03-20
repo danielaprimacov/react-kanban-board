@@ -8,7 +8,7 @@ function MainContent() {
     <main className="content">
       <div className="main-header">
         <h1 className="main-title">
-          Welcome to your <span>productivity hub!</span>
+          Welcome to your <span className="highlight-text">productivity hub!</span>
         </h1>
 
         <p className="what-you-can-do">

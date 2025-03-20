@@ -3,7 +3,7 @@ import Footer from "./assets/components/Footer";
 import Navbar from "./assets/components/Navbar";
 import Sidebar from "./assets/components/Sidebar";
 import MainContent from "./assets/components/MainContent";
-import Tasks from "./assets/components/Taks";
+import KanbanBoard from "./assets/components/KanbanBoard";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Sidebar />
       {/* <MainContent />
        */}
-      <Tasks />
+      <KanbanBoard />
       <Footer />
     </>
   );
