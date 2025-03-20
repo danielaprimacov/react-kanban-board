@@ -7,7 +7,9 @@ function MainContent() {
   return (
     <main className="content">
       <div className="main-header">
-        <h1 className="main-title">Welcome to your productivity hub!</h1>
+        <h1 className="main-title">
+          Welcome to your <span>productivity hub!</span>
+        </h1>
 
         <p className="what-you-can-do">
           Organize your tasks, track progress, and boost productivity—all in one
@@ -38,6 +40,7 @@ function MainContent() {
       <div className="create-board-btn">
         Create Board <img className="icon" src={arrowIcon} />
       </div>
+      <div className="footer-wave"></div>
     </main>
   );
 }
