@@ -4,10 +4,10 @@ import DragLayer from "./LayoutComponent/DragLayer";
 
 function KanbanBoard() {
   return (
-    <>
+    <div className="wrapper">
       <Columns data={kanbanData} />
       <DragLayer />
-    </>
+    </div>
   );
 }
 

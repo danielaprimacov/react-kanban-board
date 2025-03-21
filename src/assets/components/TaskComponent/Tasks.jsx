@@ -1,10 +1,17 @@
+import FlipMove from "react-flip-move";
+
 import TaskItem from "./TaskItem";
 
 function Tasks({ tasks }) {
   return (
-    <div className="tasks">
-      {tasks && tasks.map((task) => <TaskItem task={task} key={task.id} />)}
-    </div>
+    <FlipMove className="tasks" duration={350} easing="ease-out">
+      {tasks &&
+        tasks.map((task) => (
+          <div key={task.id}>
+            <TaskItem task={task} />
+          </div>
+        ))}
+    </FlipMove>
   );
 }
 

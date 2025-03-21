@@ -1,4 +1,4 @@
-import logo from "../../images/logo-img.jpeg";
+import logo from "../../images/logo-img.png";
 import userIcon from "../../images/user.png";
 
 function Navbar() {

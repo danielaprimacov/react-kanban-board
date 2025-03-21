@@ -18,7 +18,7 @@ function Columns({ data }) {
   const initialColumns = defaultColumnTitles.map((status) => ({
     id: status,
     title: status,
-    tasks: groupedTasks[status] || [],
+    tasks: groupedTasks[status] || [].sort((a, b) => a.id - b.id),
   }));
 
   const [columns, setColumns] = useState(initialColumns);
@@ -44,7 +44,6 @@ function Columns({ data }) {
   };
 
   const moveTask = (draggedTaskId, targetColumnId) => {
-    console.log("Moving task", draggedTaskId, "to", targetColumnId);
     setColumns((prevColumns) => {
       const newColumns = prevColumns.map((column) => ({
         ...column,
@@ -79,40 +78,16 @@ function Columns({ data }) {
     });
   };
 
-  const addTask = (columnId) => {
-    const title = prompt("Enter task title:");
-    const description = prompt("Enter task description:");
-    const assignee = prompt("Enter task assignee:");
-    if (title && description && assignee) {
-      const newTask = {
-        id: Date.now(),
-        title,
-        description,
-        assignee,
-        status: columnId,
-      };
-      setColumns((prevColumns) =>
-        prevColumns.map((column) =>
-          column.id === columnId
-            ? { ...column, tasks: [newTask, ...column.tasks] }
-            : column
-        )
-      );
-    }
-  };
-
   const openTaskModal = (columnId) => {
     setCurrentColumnId(columnId);
     setShowModal(true);
   };
 
-  // Close modal
   const closeTaskModal = () => {
     setShowModal(false);
     setCurrentColumnId(null);
   };
 
-  // Handle saving a new task from modal data
   const handleSaveTask = (taskData) => {
     const newTask = {
       id: Date.now(),

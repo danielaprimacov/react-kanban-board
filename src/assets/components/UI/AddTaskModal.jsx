@@ -13,10 +13,9 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
       alert("Please fill in all fields.");
       return;
     }
-    // Automatically set createdDate to the current date (yyyy-mm-dd)
+    
     const createdDate = new Date().toISOString().split("T")[0];
-
-    // Pass the new task data back to the parent component
+    
     onSave({
       title,
       description,
@@ -26,7 +25,6 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
       createdDate,
     });
 
-    // Clear input fields after saving
     setTitle("");
     setDescription("");
     setAssignee("");

@@ -20,7 +20,13 @@ function TaskItem({ task }) {
       className="task"
       key={task.id}
       ref={drag}
-      style={{ opacity: isDragging ? 1 : 1, cursor: "pointer" }}
+      style={{
+        opacity: isDragging ? 0 : 1,
+        cursor: "pointer",
+        transform: isDragging ? "scale(0.7)" : "scale(1)",
+        transition: "transform 0.5s ease, opacity 0.5s ease",
+        pointerEvents: isDragging ? "none" : "auto",
+      }}
     >
       <h3 className="task-title highlight-text">
         <div className="expand-task-details-btn">

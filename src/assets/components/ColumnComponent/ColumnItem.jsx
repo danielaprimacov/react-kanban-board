@@ -31,7 +31,6 @@ function ColumnItem({ column, updateColumnTitle, moveTask, addTask }) {
   const [{ isOver, canDrop }, dropRef] = useDrop({
     accept: "TASK",
     drop: (item) => {
-      console.log("Dropped item", item, "into column", column.id);
       moveTask(item.id, column.id);
     },
     collect: (monitor) => ({
