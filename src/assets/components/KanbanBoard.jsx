@@ -1,12 +1,12 @@
-import { useState } from "react";
-
 import kanbanData from "../kanban.json";
-import Columns from "./Columns";
+import Columns from "./ColumnComponent/Columns";
+import DragLayer from "./DragLayer";
 
 function KanbanBoard() {
   return (
     <>
       <Columns data={kanbanData} />
+      <DragLayer />
     </>
   );
 }

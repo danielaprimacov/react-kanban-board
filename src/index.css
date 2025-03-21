@@ -9,7 +9,8 @@
 
 html,
 body {
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 #root {

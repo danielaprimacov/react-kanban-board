@@ -1,7 +1,7 @@
-import homeIcon from "../images/home.png";
-import documentIcon from "../images/document.png";
-import statisticIcon from "../images/chart-histogram.png";
-import tasksIcon from "../images/list-check.png";
+import homeIcon from "../../images/home.png";
+import documentIcon from "../../images/document.png";
+import statisticIcon from "../../images/chart-histogram.png";
+import tasksIcon from "../../images/list-check.png";
 
 function Sidebar() {
   return (

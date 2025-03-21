@@ -256,7 +256,7 @@
 .add-column-btn {
   height: 50px;
   width: 300px;
-  margin-top: 50px;
+  margin-top: 150px;
   margin-left: 100px;
   min-width: 300px;
   cursor: pointer;
@@ -279,16 +279,20 @@
 }
 
 .kanban-content {
+  overflow-x: auto;
+  width: 100%;
+  min-height: calc(100vh - 325px);
   margin-top: 50px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .columns {
   display: flex;
-  justify-content: space-between;
   gap: 30px;
+  flex-wrap: nowrap;
   margin-left: 100px;
+  min-width: max-content;
 }
 
 .column {
@@ -296,7 +300,8 @@
   border-radius: 5px;
   border: 1px solid #ffaf5473;
   padding: 10px;
-  flex: 0 0 300px;
+  flex: 0 0 350px;
+  min-width: 350px;
 }
 
 .column-title {
@@ -349,9 +354,6 @@
 .task-assignee {
   font-size: 0.6rem;
   text-align: right;
-}
-
-.task:hover {
 }
 
 .expand-task-details-btn,

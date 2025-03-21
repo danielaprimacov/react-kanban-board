@@ -1,5 +1,5 @@
-import logo from "../images/logo-img.jpeg";
-import userIcon from "../images/user.png";
+import logo from "../../images/logo-img.jpeg";
+import userIcon from "../../images/user.png";
 
 function Navbar() {
   return (

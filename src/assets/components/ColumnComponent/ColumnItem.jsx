@@ -1,14 +1,14 @@
 import { useState } from "react";
+import { useDrop } from "react-dnd";
 
-import ClockIcon from "./Icons/ClockIcon";
-import CheckCircleIcon from "./Icons/CheckCircleIcon";
-import RocketLaunchIcon from "./Icons/RocketLaunchIcon";
-import ArrowsOutIcon from "./Icons/ArrowsOutIcon";
-import DeleteIcon from "./Icons/DeleteIcon";
-import XmarkIcon from "./Icons/XmarkIcon";
+import ClockIcon from "../Icons/ClockIcon";
+import CheckCircleIcon from "../Icons/CheckCircleIcon";
+import RocketLaunchIcon from "../Icons/RocketLaunchIcon";
+import XmarkIcon from "../Icons/XmarkIcon";
 
-function ColumnItem({ column, updateColumnTitle }) {
-  const [tasks] = useState(column.tasks);
+import Tasks from "../TaskComponent/Tasks";
+
+function ColumnItem({ column, updateColumnTitle, moveTask }) {
   const [isEditingColumnTitle, setIsEditingColumnTitle] = useState(false);
   const [title, setTitle] = useState(column.title);
   const [showIcon, setShowIcon] = useState(true);
@@ -27,8 +27,27 @@ function ColumnItem({ column, updateColumnTitle }) {
     return null;
   };
 
+  const [{ isOver, canDrop }, dropRef] = useDrop({
+    accept: "TASK",
+    drop: (item) => {
+      console.log("Dropped item", item, "into column", column.id);
+      moveTask(item.id, column.id);
+    },
+    collect: (monitor) => ({
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop(),
+    }),
+  });
+
   return (
-    <div className="column" key={column.id}>
+    <div
+      className="column"
+      key={column.id}
+      style={{
+        backgroundColor: isOver && canDrop ? "#f0f0f023" : "inherit",
+      }}
+      ref={dropRef}
+    >
       <div className="column-title">
         {isEditingColumnTitle ? (
           <div className="edit-title-container">
@@ -43,7 +62,7 @@ function ColumnItem({ column, updateColumnTitle }) {
             {showIcon && (
               <div
                 className="remove-icon-btn"
-                onMouseDown={(e) => e.preventDefault()} 
+                onMouseDown={(e) => e.preventDefault()}
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowIcon(false);
@@ -62,24 +81,7 @@ function ColumnItem({ column, updateColumnTitle }) {
         )}
       </div>
 
-      <div className="tasks">
-        {tasks &&
-          tasks.map((task) => (
-            <div className="task" key={task.id}>
-              <h3 className="task-title highlight-text">
-                <div className="expand-task-details-btn">
-                  <ArrowsOutIcon />
-                </div>
-                {task.title}
-                <div className="delete-task-btn">
-                  <DeleteIcon />
-                </div>
-              </h3>
-              <p className="task-description">{task.description}</p>
-              <p className="task-assignee">{task.assignee}</p>
-            </div>
-          ))}
-      </div>
+      <Tasks tasks={column.tasks} />
     </div>
   );
 }

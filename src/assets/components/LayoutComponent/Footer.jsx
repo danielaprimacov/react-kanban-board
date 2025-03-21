@@ -1,4 +1,4 @@
-import gitHubIcon from "../images/github.png";
+import gitHubIcon from "../../images/github.png";
 
 function Footer() {
   return (
