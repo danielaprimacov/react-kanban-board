@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import PlusIcon from "../Icons/PlusIcon";
 import ColumnItem from "./ColumnItem";
+import AddTaskModal from "../UI/AddTaskModal";
 
 function Columns({ data }) {
   const groupedTasks = data.reduce((acc, task) => {
@@ -21,6 +22,8 @@ function Columns({ data }) {
   }));
 
   const [columns, setColumns] = useState(initialColumns);
+  const [showModal, setShowModal] = useState(false);
+  const [currentColumnId, setCurrentColumnId] = useState(null);
 
   const updateColumnTitle = (columnId, newTitle) => {
     setColumns((prevColumns) =>
@@ -43,14 +46,12 @@ function Columns({ data }) {
   const moveTask = (draggedTaskId, targetColumnId) => {
     console.log("Moving task", draggedTaskId, "to", targetColumnId);
     setColumns((prevColumns) => {
-      // Create a new copy of columns with a copy of their tasks.
       const newColumns = prevColumns.map((column) => ({
         ...column,
         tasks: [...column.tasks],
       }));
 
       let taskToMove = null;
-      // Remove the task from its original column.
       newColumns.forEach((column) => {
         const taskIndex = column.tasks.findIndex(
           (task) => String(task.id) === String(draggedTaskId)
@@ -62,9 +63,7 @@ function Columns({ data }) {
       });
 
       if (taskToMove) {
-        // Optionally update the task's status.
         taskToMove.status = targetColumnId;
-        // Add the task to the target column.
         const targetColumn = newColumns.find(
           (column) => column.id === targetColumnId
         );
@@ -78,6 +77,56 @@ function Columns({ data }) {
       }
       return newColumns;
     });
+  };
+
+  const addTask = (columnId) => {
+    const title = prompt("Enter task title:");
+    const description = prompt("Enter task description:");
+    const assignee = prompt("Enter task assignee:");
+    if (title && description && assignee) {
+      const newTask = {
+        id: Date.now(),
+        title,
+        description,
+        assignee,
+        status: columnId,
+      };
+      setColumns((prevColumns) =>
+        prevColumns.map((column) =>
+          column.id === columnId
+            ? { ...column, tasks: [newTask, ...column.tasks] }
+            : column
+        )
+      );
+    }
+  };
+
+  const openTaskModal = (columnId) => {
+    setCurrentColumnId(columnId);
+    setShowModal(true);
+  };
+
+  // Close modal
+  const closeTaskModal = () => {
+    setShowModal(false);
+    setCurrentColumnId(null);
+  };
+
+  // Handle saving a new task from modal data
+  const handleSaveTask = (taskData) => {
+    const newTask = {
+      id: Date.now(),
+      ...taskData,
+      status: currentColumnId,
+    };
+    setColumns((prevColumns) =>
+      prevColumns.map((column) =>
+        column.id === currentColumnId
+          ? { ...column, tasks: [newTask, ...column.tasks] }
+          : column
+      )
+    );
+    closeTaskModal();
   };
 
   return (
@@ -94,10 +143,16 @@ function Columns({ data }) {
               column={column}
               updateColumnTitle={updateColumnTitle}
               moveTask={moveTask}
+              addTask={openTaskModal}
             />
           ))}
         </div>
       </div>
+      <AddTaskModal
+        isOpen={showModal}
+        onClose={closeTaskModal}
+        onSave={handleSaveTask}
+      />
     </>
   );
 }

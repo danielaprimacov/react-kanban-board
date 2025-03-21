@@ -5,10 +5,11 @@ import ClockIcon from "../Icons/ClockIcon";
 import CheckCircleIcon from "../Icons/CheckCircleIcon";
 import RocketLaunchIcon from "../Icons/RocketLaunchIcon";
 import XmarkIcon from "../Icons/XmarkIcon";
+import SimplePlusIcon from "../Icons/SimplePlusIcon";
 
 import Tasks from "../TaskComponent/Tasks";
 
-function ColumnItem({ column, updateColumnTitle, moveTask }) {
+function ColumnItem({ column, updateColumnTitle, moveTask, addTask }) {
   const [isEditingColumnTitle, setIsEditingColumnTitle] = useState(false);
   const [title, setTitle] = useState(column.title);
   const [showIcon, setShowIcon] = useState(true);
@@ -80,7 +81,11 @@ function ColumnItem({ column, updateColumnTitle, moveTask }) {
           </div>
         )}
       </div>
-
+      <div className="add-task-container">
+        <div className="add-task-btn" onClick={() => addTask(column.id)}>
+          <SimplePlusIcon /> Add new Task
+        </div>
+      </div>
       <Tasks tasks={column.tasks} />
     </div>
   );

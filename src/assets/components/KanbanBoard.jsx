@@ -1,6 +1,6 @@
 import kanbanData from "../kanban.json";
 import Columns from "./ColumnComponent/Columns";
-import DragLayer from "./DragLayer";
+import DragLayer from "./LayoutComponent/DragLayer";
 
 function KanbanBoard() {
   return (
