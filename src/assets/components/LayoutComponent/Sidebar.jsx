@@ -2,6 +2,7 @@ import homeIcon from "../../images/home.png";
 import documentIcon from "../../images/document.png";
 import statisticIcon from "../../images/chart-histogram.png";
 import tasksIcon from "../../images/list-check.png";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -9,19 +10,19 @@ function Sidebar() {
       <ul className="sidebar-list">
         <li className="sidebar-item">
           <img className="icon" src={homeIcon} alt="Home Icon" />
-          <a href="#">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li className="sidebar-item">
           <img className="icon" src={documentIcon} alt="Document Icon" />
-          <a href="#">About</a>
+          <Link to="#">About</Link>
         </li>
         <li className="sidebar-item">
           <img className="icon" src={tasksIcon} alt="Tasks Icon" />
-          <a href="#">Tasks</a>
+          <Link to="/board">Tasks</Link>
         </li>
         <li className="sidebar-item">
           <img className="icon" src={statisticIcon} alt="Statistic Icon" />
-          <a href="#">Statistics</a>
+          <Link to="#">Statistics</Link>
         </li>
       </ul>
     </div>

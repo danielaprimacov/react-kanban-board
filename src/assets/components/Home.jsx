@@ -2,13 +2,15 @@ import boardExample from "../images/board.jpeg";
 import infoIcon from "../images/check.png";
 import starIcon from "../images/star.png";
 import arrowIcon from "../images/arrow-right.png";
+import { Link } from "react-router-dom";
 
 function MainContent() {
   return (
     <main className="content">
       <div className="main-header">
         <h1 className="main-title">
-          Welcome to your <span className="highlight-text">productivity hub!</span>
+          Welcome to your{" "}
+          <span className="highlight-text">productivity hub!</span>
         </h1>
 
         <p className="what-you-can-do">
@@ -37,9 +39,9 @@ function MainContent() {
         <img src={starIcon} alt="Arrow Icon" />
         <p>Get started now and take control of your projects!</p>
       </div>
-      <div className="create-board-btn">
+      <Link to="/board" className="create-board-btn">
         Create Board <img className="icon" src={arrowIcon} />
-      </div>
+      </Link>
       <div className="footer-wave"></div>
     </main>
   );
