@@ -278,7 +278,7 @@
 .add-column-btn {
   height: 50px;
   width: 300px;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 100px;
   min-width: 300px;
   cursor: pointer;
@@ -302,9 +302,10 @@
 }
 
 .wrapper {
-  overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
-  min-height: calc(100vh - 30px);
+  height: calc(100vh - 80px);
+  margin: 5px;
 }
 
 .kanban-content {
