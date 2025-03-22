@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useDrop } from "react-dnd";
 
 import ClockIcon from "../Icons/ClockIcon";
@@ -54,10 +54,8 @@ function ColumnItem({
     <div
       ref={dropZoneRef}
       style={{
-        paddingLeft: extendedMargin,
-        paddingRight: extendedMargin,
-        marginLeft: -extendedMargin,
-        marginRight: -extendedMargin,
+        paddingBottom: extendedMargin,
+        marginBottom: -extendedMargin,
       }}
     >
       <div

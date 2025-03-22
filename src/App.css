@@ -399,6 +399,14 @@
   stroke: #f9572a;
 }
 
+.remove-icon-btn {
+  cursor: pointer;
+  display: flex;
+  gap: 2px;
+  font-size: 0.9rem;
+  padding: 4px;
+  pointer-events: auto;
+}
 
 .delete-task-btn svg:hover,
 .remove-icon-btn svg:hover {
