@@ -97,11 +97,25 @@ function Columns({ data }) {
     setColumns((prevColumns) =>
       prevColumns.map((column) =>
         column.id === currentColumnId
-          ? { ...column, tasks: [newTask, ...column.tasks] }
+          ? {
+              ...column,
+              tasks: [...column.tasks, newTask].sort(
+                (a, b) => new Date(a.date) - new Date(b.date)
+              ),
+            }
           : column
       )
     );
     closeTaskModal();
+  };
+
+  const deleteTask = (taskId) => {
+    setColumns((prevColumns) =>
+      prevColumns.map((column) => ({
+        ...column,
+        tasks: column.tasks.filter((task) => task.id !== taskId),
+      }))
+    );
   };
 
   return (
@@ -119,6 +133,7 @@ function Columns({ data }) {
               updateColumnTitle={updateColumnTitle}
               moveTask={moveTask}
               addTask={openTaskModal}
+              deleteTask={deleteTask}
             />
           ))}
         </div>

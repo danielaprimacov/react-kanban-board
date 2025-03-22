@@ -159,6 +159,27 @@
   -webkit-text-fill-color: transparent;
 }
 
+.gradient-low {
+  background: linear-gradient(90deg, #66bb6a, #1b5e20);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-medium {
+  background: linear-gradient(90deg, #ff8a65, #bf360c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-high {
+  background: linear-gradient(90deg, #f44336, #b71c1c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .board-img {
   width: 500px;
   height: auto;
@@ -257,7 +278,7 @@
 .add-column-btn {
   height: 50px;
   width: 300px;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-left: 100px;
   min-width: 300px;
   cursor: pointer;
@@ -283,7 +304,7 @@
 .wrapper {
   overflow-x: auto;
   width: 100%;
-  min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 30px);
 }
 
 .kanban-content {
@@ -336,7 +357,6 @@
   width: 350px;
   height: 100px;
   cursor: pointer;
-  background-color: #ffaf545d;
   border-radius: 5px;
   padding: 10px;
   display: flex;
@@ -378,6 +398,7 @@
 .expand-task-details-btn svg:hover {
   stroke: #f9572a;
 }
+
 
 .delete-task-btn svg:hover,
 .remove-icon-btn svg:hover {
@@ -529,4 +550,12 @@
 .add-priority,
 .add-duedate {
   color: #282c34;
+}
+
+.add-priority option {
+  color: #2c333d;
+}
+
+.add-priority option:hover {
+  color: #ffaf54;
 }

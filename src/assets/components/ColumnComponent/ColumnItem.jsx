@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useDrop } from "react-dnd";
 
 import ClockIcon from "../Icons/ClockIcon";
@@ -9,10 +9,19 @@ import SimplePlusIcon from "../Icons/SimplePlusIcon";
 
 import Tasks from "../TaskComponent/Tasks";
 
-function ColumnItem({ column, updateColumnTitle, moveTask, addTask }) {
+function ColumnItem({
+  column,
+  updateColumnTitle,
+  moveTask,
+  addTask,
+  deleteTask,
+}) {
   const [isEditingColumnTitle, setIsEditingColumnTitle] = useState(false);
   const [title, setTitle] = useState(column.title);
   const [showIcon, setShowIcon] = useState(true);
+  const dropZoneRef = useRef(null);
+
+  const extendedMargin = 100;
 
   const handleTitleChange = (event) => setTitle(event.target.value);
 
@@ -28,9 +37,9 @@ function ColumnItem({ column, updateColumnTitle, moveTask, addTask }) {
     return null;
   };
 
-  const [{ isOver, canDrop }, dropRef] = useDrop({
+  const [{ isOver, canDrop }, drop] = useDrop({
     accept: "TASK",
-    drop: (item) => {
+    drop: (item, monitor) => {
       moveTask(item.id, column.id);
     },
     collect: (monitor) => ({
@@ -39,53 +48,63 @@ function ColumnItem({ column, updateColumnTitle, moveTask, addTask }) {
     }),
   });
 
+  drop(dropZoneRef);
+
   return (
     <div
-      className="column"
-      key={column.id}
+      ref={dropZoneRef}
       style={{
-        backgroundColor: isOver && canDrop ? "#f0f0f023" : "inherit",
+        paddingLeft: extendedMargin,
+        paddingRight: extendedMargin,
+        marginLeft: -extendedMargin,
+        marginRight: -extendedMargin,
       }}
-      ref={dropRef}
     >
-      <div className="column-title">
-        {isEditingColumnTitle ? (
-          <div className="edit-title-container">
-            <input
-              className="change-column-title"
-              autoFocus
-              onBlur={handleTitleBlur}
-              value={title}
-              onChange={handleTitleChange}
-            />
-            {showIcon && <span className="edit-icon">{getIcon()}</span>}
-            {showIcon && (
-              <div
-                className="remove-icon-btn"
-                onMouseDown={(e) => e.preventDefault()}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowIcon(false);
-                }}
-              >
-                <XmarkIcon /> Icon
-              </div>
-            )}
-          </div>
-        ) : (
-          <div onClick={() => setIsEditingColumnTitle(true)}>
-            <h2>
-              {title} {showIcon && getIcon()}
-            </h2>
-          </div>
-        )}
-      </div>
-      <div className="add-task-container">
-        <div className="add-task-btn" onClick={() => addTask(column.id)}>
-          <SimplePlusIcon /> Add new Task
+      <div
+        className="column"
+        style={{
+          backgroundColor: isOver && canDrop ? "#f0f0f023" : "inherit",
+        }}
+      >
+        <div className="column-title">
+          {isEditingColumnTitle ? (
+            <div className="edit-title-container">
+              <input
+                className="change-column-title"
+                autoFocus
+                onBlur={handleTitleBlur}
+                value={title}
+                onChange={handleTitleChange}
+              />
+              {showIcon && <span className="edit-icon">{getIcon()}</span>}
+              {showIcon && (
+                <div
+                  className="remove-icon-btn"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowIcon(false);
+                  }}
+                >
+                  <XmarkIcon /> Icon
+                </div>
+              )}
+            </div>
+          ) : (
+            <div onClick={() => setIsEditingColumnTitle(true)}>
+              <h2>
+                {title} {showIcon && getIcon()}
+              </h2>
+            </div>
+          )}
         </div>
+        <div className="add-task-container">
+          <div className="add-task-btn" onClick={() => addTask(column.id)}>
+            <SimplePlusIcon /> Add new Task
+          </div>
+        </div>
+        <Tasks tasks={column.tasks} deleteTask={deleteTask} />
       </div>
-      <Tasks tasks={column.tasks} />
     </div>
   );
 }

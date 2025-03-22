@@ -5,7 +5,7 @@ import "./App.css";
 import Footer from "./assets/components/LayoutComponent/Footer";
 import Navbar from "./assets/components/LayoutComponent/Navbar";
 import Sidebar from "./assets/components/LayoutComponent/Sidebar";
-import MainContent from "./assets/components/MainContent";
+import Home from "./assets/components/Home";
 import KanbanBoard from "./assets/components/KanbanBoard";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <>
       <Navbar />
       <Sidebar />
-      {/* <MainContent />
+      {/* <Home />
        */}
       <DndProvider backend={HTML5Backend}>
         <KanbanBoard />
