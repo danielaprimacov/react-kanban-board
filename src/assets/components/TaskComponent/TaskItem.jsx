@@ -3,6 +3,8 @@ import { useDrag } from "react-dnd";
 import ArrowsOutIcon from "../Icons/ArrowsOutIcon";
 import DeleteIcon from "../Icons/DeleteIcon";
 
+import classes from "./TaskItem.module.css";
+
 function TaskItem({ task, deleteTask }) {
   const [{ isDragging }, drag] = useDrag(
     () => ({
@@ -47,7 +49,7 @@ function TaskItem({ task, deleteTask }) {
 
   return (
     <div
-      className="task"
+      className={classes.task}
       key={task.id}
       ref={drag}
       style={{
@@ -60,25 +62,25 @@ function TaskItem({ task, deleteTask }) {
       }}
     >
       <h3
-        className={`task-title ${
+        className={`${classes["task-title"]} ${
           {
-            low: "gradient-low",
-            medium: "gradient-medium",
-            high: "gradient-high",
+            low: classes["gradient-low"],
+            medium: classes["gradient-medium"],
+            high: classes["gradient-high"],
           }[taskPriority] || ""
         }`}
         style={{ color: titleColor }}
       >
-        <div className="expand-task-details-btn">
+        <div className={classes["expand-task-details-btn"]}>
           <ArrowsOutIcon />
         </div>
         {task.title}
-        <div className="delete-task-btn" onClick={deleteTaskHandler}>
+        <div className={classes["delete-task-btn"]} onClick={deleteTaskHandler}>
           <DeleteIcon />
         </div>
       </h3>
-      <p className="task-description">{task.description}</p>
-      <p className="task-assignee">{task.assignee}</p>
+      <p className={classes["task-description"]}>{task.description}</p>
+      <p className={classes["task-assignee"]}>{task.assignee}</p>
     </div>
   );
 }

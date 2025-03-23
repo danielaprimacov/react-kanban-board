@@ -1,0 +1,98 @@
+.column-title svg {
+  height: 24px;
+}
+
+.column {
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid #ffaf5473;
+  padding: 10px;
+  margin-bottom: 200px;
+  flex: 0 1 370px;
+  min-width: 370px;
+  align-self: flex-start;
+}
+
+.column-title {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ffaf5473;
+}
+
+.column-title h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.change-column-title {
+  flex-grow: 1;
+  font-size: inherit;
+  padding: 0.25rem 0.5rem;
+  background-color: #2c333d;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-title-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.change-column-title:focus,
+.add-task:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.edit-icon {
+  display: flex;
+  align-items: center;
+}
+
+.remove-icon-btn {
+  background: radial-gradient(#282c34, #282c34);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  gap: 2px;
+  font-size: 0.9rem;
+}
+
+.remove-icon-btn svg:hover {
+  stroke: rgb(247, 41, 41);
+}
+
+.add-task-container {
+  width: 340px;
+  height: 30px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  display: flex;
+}
+.add-task-container:hover {
+  box-shadow: 0px 0px 15px rgba(255, 175, 84, 0.685);
+  border-radius: 10px;
+}
+
+.add-task-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+  width: inherit;
+  height: 30px;
+  background-color: #f0f0f023;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.add-task-btn svg {
+  height: 16px;
+}

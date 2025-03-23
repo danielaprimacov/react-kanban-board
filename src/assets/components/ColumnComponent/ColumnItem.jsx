@@ -9,6 +9,8 @@ import SimplePlusIcon from "../Icons/SimplePlusIcon";
 
 import Tasks from "../TaskComponent/Tasks";
 
+import classes from "./ColumnItem.module.css";
+
 function ColumnItem({
   column,
   updateColumnTitle,
@@ -59,25 +61,27 @@ function ColumnItem({
       }}
     >
       <div
-        className="column"
+        className={classes.column}
         style={{
           backgroundColor: isOver && canDrop ? "#f0f0f023" : "inherit",
         }}
       >
-        <div className="column-title">
+        <div className={classes["column-title"]}>
           {isEditingColumnTitle ? (
-            <div className="edit-title-container">
+            <div className={classes["edit-title-container"]}>
               <input
-                className="change-column-title"
+                className={classes["change-column-title"]}
                 autoFocus
                 onBlur={handleTitleBlur}
                 value={title}
                 onChange={handleTitleChange}
               />
-              {showIcon && <span className="edit-icon">{getIcon()}</span>}
+              {showIcon && (
+                <span className={classes["edit-icon"]}>{getIcon()}</span>
+              )}
               {showIcon && (
                 <div
-                  className="remove-icon-btn"
+                  className={classes["remove-icon-btn"]}
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={(e) => {
                     e.stopPropagation();
@@ -96,8 +100,11 @@ function ColumnItem({
             </div>
           )}
         </div>
-        <div className="add-task-container">
-          <div className="add-task-btn" onClick={() => addTask(column.id)}>
+        <div className={classes["add-task-container"]}>
+          <div
+            className={classes["add-task-btn"]}
+            onClick={() => addTask(column.id)}
+          >
             <SimplePlusIcon /> Add new Task
           </div>
         </div>

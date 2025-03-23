@@ -6,8 +6,10 @@ import "./App.css";
 import Footer from "./assets/components/LayoutComponent/Footer";
 import Navbar from "./assets/components/LayoutComponent/Navbar";
 import Sidebar from "./assets/components/LayoutComponent/Sidebar";
-import Home from "./assets/components/Home";
-import KanbanBoard from "./assets/components/KanbanBoard";
+
+import HomePage from "./pages/Home";
+import KanbanPage from "./pages/KanbanPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   return (
@@ -16,15 +18,16 @@ function App() {
       <Sidebar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="/board"
           element={
             <DndProvider backend={HTML5Backend}>
-              <KanbanBoard />
+              <KanbanPage />
             </DndProvider>
           }
         />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
 
       <Footer />

@@ -4,6 +4,8 @@ import PlusIcon from "../Icons/PlusIcon";
 import ColumnItem from "./ColumnItem";
 import AddTaskModal from "../UI/AddTaskModal";
 
+import classes from "./Columns.module.css";
+
 function Columns({ data }) {
   const groupedTasks = data.reduce((acc, task) => {
     if (!acc[task.status]) {
@@ -120,12 +122,12 @@ function Columns({ data }) {
 
   return (
     <>
-      <button className="add-column-btn" onClick={addColumn}>
+      <button className={classes["add-column-btn"]} onClick={addColumn}>
         <PlusIcon />
         Add Column
       </button>
-      <div className="kanban-content">
-        <div className="columns">
+      <div className={classes["kanban-content"]}>
+        <div className={classes.columns}>
           {columns.map((column) => (
             <ColumnItem
               key={column.id}

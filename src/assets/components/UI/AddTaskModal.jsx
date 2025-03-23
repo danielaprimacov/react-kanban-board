@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import classes from "./AddTaskModal.module.css";
+
 function AddTaskModal({ isOpen, onClose, onSave }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -8,14 +10,13 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
   const [dueDate, setDueDate] = useState("");
 
   const handleSave = () => {
-    // Validate that all required fields are filled
     if (!title || !description || !assignee || !dueDate) {
       alert("Please fill in all fields.");
       return;
     }
-    
+
     const createdDate = new Date().toISOString().split("T")[0];
-    
+
     onSave({
       title,
       description,
@@ -35,40 +36,40 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content" tabIndex="0">
+    <div className={classes["modal-overlay"]}>
+      <div className={classes["modal-content"]} tabIndex="0">
         <h2>Add New Task</h2>
-        <div className="modal-field">
+        <div className={classes["modal-field"]}>
           <label>Title:</label>
           <input
-            className="add-task add-title"
+            className={`${classes["add-task"]} ${classes["add-title"]}`}
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div className="modal-field">
+        <div className={classes["modal-field"]}>
           <label>Description:</label>
           <input
-            className="add-task add-description"
+            className={`${classes["add-task"]} ${classes["add-description"]}`}
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <div className="modal-field">
+        <div className={classes["modal-field"]}>
           <label>Assignee:</label>
           <input
-            className="add-task add-assignee"
+            className={`${classes["add-task"]} ${classes["add-assignee"]}`}
             type="text"
             value={assignee}
             onChange={(e) => setAssignee(e.target.value)}
           />
         </div>
-        <div className="modal-field">
+        <div className={classes["modal-field"]}>
           <label>Priority:</label>
           <select
-            className="add-task add-priority"
+            className={`${classes["add-task"]} ${classes["add-priority"]}`}
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
           >
@@ -77,20 +78,20 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
             <option value="High">High</option>
           </select>
         </div>
-        <div className="modal-field">
+        <div className={classes["modal-field"]}>
           <label>Due Date:</label>
           <input
-            className="add-task add-duedate"
+            className={`${classes["add-task"]} ${classes["add-duedate"]}`}
             type="date"
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
           />
         </div>
-        <div className="modal-actions">
-          <button onClick={onClose} className="cancel-btn">
+        <div className={classes["modal-actions"]}>
+          <button onClick={onClose} className={classes["cancel-btn"]}>
             Cancel
           </button>
-          <button onClick={handleSave} className="save-btn">
+          <button onClick={handleSave} className={classes["save-btn"]}>
             Save
           </button>
         </div>

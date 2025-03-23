@@ -1,0 +1,69 @@
+.gradient-low {
+  background: linear-gradient(90deg, #66bb6a, #1b5e20);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-medium {
+  background: linear-gradient(90deg, #ff8a65, #bf360c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-high {
+  background: linear-gradient(90deg, #f44336, #b71c1c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.task {
+  width: 350px;
+  height: 100px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.task-title {
+  margin-bottom: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-title svg,
+.remove-icon-btn svg {
+  height: 16px;
+}
+
+.task-description {
+  font-size: 0.8rem;
+}
+
+.task-assignee {
+  font-size: 0.6rem;
+  text-align: right;
+}
+
+.expand-task-details-btn,
+.delete-task-btn {
+  cursor: pointer;
+}
+
+.expand-task-details-btn svg,
+.delete-task-btn svg {
+  transition: stroke 0.3s ease;
+}
+
+.expand-task-details-btn svg:hover {
+  stroke: #f9572a;
+}
+
+.delete-task-btn svg:hover {
+  stroke: rgb(247, 41, 41);
+}
