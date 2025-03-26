@@ -9,7 +9,6 @@
   gap: 30px;
   flex-wrap: nowrap;
   margin-left: 100px;
-  min-width: max-content;
 }
 
 .add-column-btn {

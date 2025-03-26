@@ -128,3 +128,8 @@
 .icon {
   width: 30px;
 }
+
+.animation-container {
+  margin: 10px;
+  padding-top: 20px;
+}
