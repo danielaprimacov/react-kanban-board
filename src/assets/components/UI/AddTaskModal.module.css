@@ -89,3 +89,7 @@
 .add-priority option:hover {
   color: #ffaf54;
 }
+
+.error {
+  color: rgba(223, 12, 12, 0.5);
+}

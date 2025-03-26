@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useDrop } from "react-dnd";
 
 import ClockIcon from "../Icons/ClockIcon";
@@ -41,7 +41,7 @@ function ColumnItem({
 
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: "TASK",
-    drop: (item, monitor) => {
+    drop: (item) => {
       moveTask(item.id, column.id);
     },
     collect: (monitor) => ({
@@ -100,14 +100,17 @@ function ColumnItem({
             </div>
           )}
         </div>
-        <div className={classes["add-task-container"]}>
-          <div
-            className={classes["add-task-btn"]}
-            onClick={() => addTask(column.id)}
-          >
-            <SimplePlusIcon /> Add new Task
+        {/* Render the Add Task button only if the column is not "Done" */}
+        {column.id !== "Done" && (
+          <div className={classes["add-task-container"]}>
+            <div
+              className={classes["add-task-btn"]}
+              onClick={() => addTask(column.id)}
+            >
+              <SimplePlusIcon /> Add new Task
+            </div>
           </div>
-        </div>
+        )}
         <Tasks tasks={column.tasks} deleteTask={deleteTask} />
       </div>
     </div>

@@ -9,6 +9,7 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
     priority: "Medium",
     dueDate: "",
   });
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -16,18 +17,18 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
       ...prev,
       [name]: value,
     }));
+    if (error) setError("");
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const { title, description, assignee, dueDate } = formData;
     if (!title || !description || !assignee || !dueDate) {
-      alert("Please fill in all fields.");
+      setError("* Please fill in all fields.");
       return;
     }
 
     const createdDate = new Date().toISOString().split("T")[0];
-
     onSave({
       ...formData,
       createdDate,
@@ -40,6 +41,7 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
       priority: "Medium",
       dueDate: "",
     });
+    setError("");
   };
 
   if (!isOpen) return null;
@@ -107,6 +109,7 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
               className={`${classes["add-task"]} ${classes["add-duedate"]}`}
             />
           </div>
+          {error && <p className={classes.error}>{error}</p>}
           <div className={classes["modal-actions"]}>
             <button
               type="button"
