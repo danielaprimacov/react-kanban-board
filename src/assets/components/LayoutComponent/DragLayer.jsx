@@ -1,5 +1,7 @@
 import { useDragLayer } from "react-dnd";
 
+import classes from "../TaskComponent/TaskItem.module.css";
+
 function getItemStyles(currentOffset) {
   if (!currentOffset) {
     return { display: "none" };
@@ -39,31 +41,32 @@ function DragLayer() {
     medium: "#BF360C",
     high: "#B71C1C",
   };
-  
+
   const taskPriority = String(item.priority).toLowerCase();
   const titleColor = textColor[taskPriority] || "#000000";
 
   const backgroundColor = priorityColorMap[taskPriority] || defaultColor;
 
+  const gradientClass =
+    {
+      low: classes.gradientLow,
+      medium: classes.gradientMedium,
+      high: classes.gradientHigh,
+    }[taskPriority] || "";
+
   return (
     <div style={getItemStyles(currentOffset)}>
-      <div className="task" style={{ opacity: 0.7, backgroundColor }}>
+      <div className={classes.task} style={{ opacity: 0.7, backgroundColor }}>
         <h3
-          className={`task-title ${
-            {
-              low: "gradient-low",
-              medium: "gradient-medium",
-              high: "gradient-high",
-            }[taskPriority] || ""
-          }`}
+          className={`${classes["task-title"]} ${gradientClass}`}
           style={{ color: titleColor }}
         >
-          <div className="expand-task-details-btn"></div>
+          <div className={classes["expand-task-details-btn"]}></div>
           {item.title}
-          <div className="delete-task-btn"></div>
+          <div className={classes["delete-task-btn"]}></div>
         </h3>
-        <p className="task-description">{item.description}</p>
-        <p className="task-assignee">{item.assignee}</p>
+        <p className={classes["task-description"]}>{item.description}</p>
+        <p className={classes["task-assignee"]}>{item.assignee}</p>
       </div>
     </div>
   );
