@@ -1,4 +1,5 @@
 import { useDrag } from "react-dnd";
+import { useNavigate } from "react-router-dom";
 
 import ArrowsOutIcon from "../Icons/ArrowsOutIcon";
 import DeleteIcon from "../Icons/DeleteIcon";
@@ -6,6 +7,8 @@ import DeleteIcon from "../Icons/DeleteIcon";
 import classes from "./TaskItem.module.css";
 
 function TaskItem({ task, deleteTask }) {
+  const navigate = useNavigate();
+
   const [{ isDragging }, drag] = useDrag(
     () => ({
       type: "TASK",
@@ -47,6 +50,11 @@ function TaskItem({ task, deleteTask }) {
     }
   };
 
+  const openTaskDetailsHandler = (event) => {
+    event.stopPropagation();
+    navigate(`/board/${task.id}`);
+  };
+
   return (
     <div
       className={classes.task}
@@ -71,7 +79,10 @@ function TaskItem({ task, deleteTask }) {
         }`}
         style={{ color: titleColor }}
       >
-        <div className={classes["expand-task-details-btn"]}>
+        <div
+          className={classes["expand-task-details-btn"]}
+          onClick={openTaskDetailsHandler}
+        >
           <ArrowsOutIcon />
         </div>
         {task.title}
