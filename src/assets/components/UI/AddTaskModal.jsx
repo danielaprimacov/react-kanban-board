@@ -52,7 +52,7 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
         <h2>Add New Task</h2>
         <form onSubmit={handleSubmit}>
           <div className={classes["modal-field"]}>
-            <label htmlFor="title">Title:</label>
+            <label htmlFor="title">Title</label>
             <input
               id="title"
               name="title"
@@ -63,7 +63,7 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
             />
           </div>
           <div className={classes["modal-field"]}>
-            <label htmlFor="description">Description:</label>
+            <label htmlFor="description">Description</label>
             <input
               id="description"
               name="description"
@@ -74,7 +74,7 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
             />
           </div>
           <div className={classes["modal-field"]}>
-            <label htmlFor="assignee">Assignee:</label>
+            <label htmlFor="assignee">Assignee</label>
             <input
               id="assignee"
               name="assignee"
@@ -85,7 +85,7 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
             />
           </div>
           <div className={classes["modal-field"]}>
-            <label htmlFor="priority">Priority:</label>
+            <label htmlFor="priority">Priority</label>
             <select
               id="priority"
               name="priority"
@@ -99,7 +99,7 @@ function AddTaskModal({ isOpen, onClose, onSave }) {
             </select>
           </div>
           <div className={classes["modal-field"]}>
-            <label htmlFor="dueDate">Due Date:</label>
+            <label htmlFor="dueDate">Due Date</label>
             <input
               id="dueDate"
               name="dueDate"

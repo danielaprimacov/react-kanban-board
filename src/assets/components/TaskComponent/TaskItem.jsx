@@ -52,7 +52,9 @@ function TaskItem({ task, deleteTask }) {
 
   const openTaskDetailsHandler = (event) => {
     event.stopPropagation();
-    navigate(`/board/${task.id}`);
+    navigate(`/board/${task.id}`, { state: { task } });
+
+    console.log(task);
   };
 
   return (
