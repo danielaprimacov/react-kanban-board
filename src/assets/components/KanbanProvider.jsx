@@ -1,11 +1,8 @@
-// KanbanBoard.js
 import { useState } from "react";
 import kanbanData from "../kanban.json";
-import Columns from "./ColumnComponent/Columns";
-import DragLayer from "./LayoutComponent/DragLayer";
 import KanbanContext from "./KanbanContext";
 
-function KanbanBoard() {
+const KanbanProvider = ({ children }) => {
   // Group tasks by their status
   const groupedTasks = kanbanData.reduce((acc, task) => {
     if (!acc[task.status]) acc[task.status] = [];
@@ -96,19 +93,20 @@ function KanbanBoard() {
     );
   };
 
-  // NEW: Update a task with new details
+  // Update an existing task with new details
   const updateTask = (updatedTask) => {
     setColumns((prev) =>
       prev.map((col) => ({
         ...col,
         tasks: col.tasks.map((task) =>
-          task.id === updatedTask.id ? { ...task, ...updatedTask } : task
+          task.id === updatedTask.id
+            ? { ...task, ...updatedTask, updatedAt: Date.now() }
+            : task
         ),
       }))
     );
   };
 
-  // Bundle all state and functions in the context value
   const contextValue = {
     columns,
     updateColumnTitle,
@@ -120,11 +118,10 @@ function KanbanBoard() {
   };
 
   return (
-    <div className="wrapper">
-      <Columns />
-      <DragLayer />
-    </div>
+    <KanbanContext.Provider value={contextValue}>
+      {children}
+    </KanbanContext.Provider>
   );
-}
+};
 
-export default KanbanBoard;
+export default KanbanProvider;

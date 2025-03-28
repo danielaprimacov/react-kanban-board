@@ -9,10 +9,11 @@ import HomePage from "./pages/Home";
 import KanbanPage from "./pages/KanbanPage";
 import AboutPage from "./pages/AboutPage";
 import TaskDetailsPage from "./pages/TaskDetailsPage";
+import KanbanProvider from "./assets/components/KanbanProvider";
 
 function App() {
   return (
-    <>
+    <KanbanProvider>
       <Navbar />
       <Sidebar />
 
@@ -25,7 +26,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </>
+    </KanbanProvider>
   );
 }
 

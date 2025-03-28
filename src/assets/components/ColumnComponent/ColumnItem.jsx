@@ -100,7 +100,6 @@ function ColumnItem({
             </div>
           )}
         </div>
-        {/* Render the Add Task button only if the column is not "Done" */}
         {column.id !== "Done" && (
           <div className={classes["add-task-container"]}>
             <div
@@ -111,7 +110,10 @@ function ColumnItem({
             </div>
           </div>
         )}
-        <Tasks tasks={column.tasks} deleteTask={deleteTask} />
+        <Tasks
+          tasks={column.tasks}
+          deleteTask={deleteTask}
+        />
       </div>
     </div>
   );

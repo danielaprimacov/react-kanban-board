@@ -9,6 +9,8 @@ import classes from "./TaskItem.module.css";
 function TaskItem({ task, deleteTask }) {
   const navigate = useNavigate();
 
+  console.log("Rendering task:", task);
+
   const [{ isDragging }, drag] = useDrag(
     () => ({
       type: "TASK",
@@ -53,8 +55,6 @@ function TaskItem({ task, deleteTask }) {
   const openTaskDetailsHandler = (event) => {
     event.stopPropagation();
     navigate(`/board/${task.id}`, { state: { task } });
-
-    console.log(task);
   };
 
   return (

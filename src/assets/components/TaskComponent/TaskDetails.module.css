@@ -90,7 +90,13 @@
   color: #333;
 }
 
-.close-btn {
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-btn,
+.save-btn {
   width: 150px;
   height: 30px;
   border-radius: 5px;
@@ -103,4 +109,8 @@
 
 .close-btn:hover {
   background-color: rgba(223, 12, 12, 0.5);
+}
+
+.save-btn:hover {
+  background-color: rgba(102, 255, 102, 0.479);
 }
