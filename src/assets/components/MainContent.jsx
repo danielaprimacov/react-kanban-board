@@ -53,7 +53,7 @@ function MainContent() {
           </li>
         </ul>
         <div className={classes["animation-container"]}>
-          <Lottie options={defaultOptions} height={400} width={750} />
+          <Lottie options={defaultOptions} height="100%" width="100%" />
         </div>
       </div>
       <div className={classes["get-started"]}>
