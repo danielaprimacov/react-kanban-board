@@ -1,14 +1,39 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
+import RootLayout from "./assets/components/RootLayout";
+import HomePage from "./pages/Home";
+import AboutPage from "./pages/AboutPage";
+import KanbanPage from "./pages/KanbanPage";
+import TaskDetailsPage from "./pages/TaskDetailsPage";
+import ErrorPage from "./pages/ErrorPage";
 import "./index.css";
-import App from "./App.jsx";
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </StrictMode>
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <RootLayout>
+        <Outlet />
+      </RootLayout>
+    ),
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "about", element: <AboutPage /> },
+      {
+        path: "board",
+        element: <KanbanPage />,
+        children: [{ path: ":taskId", element: <TaskDetailsPage /> }],
+      },
+      { path: "*", element: <ErrorPage /> },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
