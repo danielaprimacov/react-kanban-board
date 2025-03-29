@@ -10,14 +10,9 @@
 html,
 body {
   width: 100vw;
-  height: calc(100vh - 50px);
-  overflow-x: hidden;
+  height: auto;
 }
 
-#root {
-  width: 100%;
-  height: calc(100vh -30px);
-}
 
 a {
   text-decoration: none;
@@ -25,7 +20,7 @@ a {
 }
 
 body {
-  margin-top: 45px;
+  margin-top: 80px;
   position: relative;
   z-index: 10;
   background: radial-gradient(#282c34, #282c34);
