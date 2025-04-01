@@ -9,6 +9,8 @@ function ErrorPage() {
   let title = "An error ocurred!";
   let message = "Something went wrong!";
 
+  console.log(error.status);
+
   if (error.status === 404) {
     title = "Not found!";
     message = "Could not find resourse or page. ";

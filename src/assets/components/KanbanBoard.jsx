@@ -1,9 +1,7 @@
-// KanbanBoard.js
 import { useState } from "react";
 import kanbanData from "../kanban.json";
 import Columns from "./ColumnComponent/Columns";
 import DragLayer from "./LayoutComponent/DragLayer";
-import KanbanContext from "./KanbanContext";
 
 function KanbanBoard() {
   // Group tasks by their status

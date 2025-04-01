@@ -1,4 +1,3 @@
-// Columns.js
 import { useContext, useState } from "react";
 import KanbanContext from "../KanbanContext";
 import PlusIcon from "../Icons/PlusIcon";
@@ -35,10 +34,6 @@ function Columns() {
 
   return (
     <>
-      <button className={classes["add-column-btn"]} onClick={addColumn}>
-        <PlusIcon />
-        Add Column
-      </button>
       <div className={classes["kanban-content"]}>
         <div className={classes.columns}>
           {columns.map((column) => (
@@ -52,6 +47,9 @@ function Columns() {
             />
           ))}
         </div>
+        <button className={classes["add-column-btn"]} onClick={addColumn}>
+          <PlusIcon />
+        </button>
       </div>
       <AddTaskModal
         isOpen={showModal}
