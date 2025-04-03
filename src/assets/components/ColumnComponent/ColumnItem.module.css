@@ -63,6 +63,10 @@
   font-size: 0.9rem;
 }
 
+.remove-icon-btn span {
+  padding-top: 4px;
+}
+
 .remove-icon-btn svg:hover {
   stroke: rgb(247, 41, 41);
 }
@@ -96,5 +100,3 @@
 .add-task-btn svg {
   height: 16px;
 }
-
-

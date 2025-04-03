@@ -88,7 +88,7 @@ function ColumnItem({
                     setShowIcon(false);
                   }}
                 >
-                  <XmarkIcon /> Icon
+                  <XmarkIcon /> <span>Icon</span>
                 </div>
               )}
             </div>
@@ -110,10 +110,7 @@ function ColumnItem({
             </div>
           </div>
         )}
-        <Tasks
-          tasks={column.tasks}
-          deleteTask={deleteTask}
-        />
+        <Tasks tasks={column.tasks} deleteTask={deleteTask} />
       </div>
     </div>
   );
