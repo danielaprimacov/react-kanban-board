@@ -1,0 +1,63 @@
+.highlight-text {
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-content {
+  margin-left: 100px;
+  margin-bottom: 120px;
+}
+
+.story,
+.mission,
+.offer,
+.team,
+.core,
+.journey {
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.story,
+.offer,
+.core {
+  align-items: flex-end;
+}
+
+.about-story,
+.about-mission,
+.about-offer,
+.about-team,
+.about-core,
+.about-journey {
+  width: 600px;
+  background-color: rgba(255, 175, 84, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.about-offer {
+  text-align: left;
+}
+
+.about-offer ul {
+  list-style: circle;
+  margin-left: 5px;
+}
+
+.about-story:hover,
+.about-mission:hover,
+.about-offer:hover,
+.about-team:hover,
+.about-core:hover,
+.about-journey:hover {
+  transform: scale(1.1);
+}
+

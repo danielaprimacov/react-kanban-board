@@ -1,8 +1,8 @@
 import Lottie from "react-lottie";
-import teamAnimation from "../animations/team.json";
-import infoIcon from "../images/check.png";
-import starIcon from "../images/star.png";
-import arrowIcon from "../images/arrow-right.png";
+import teamAnimation from "../../animations/team.json";
+import infoIcon from "../../images/check.png";
+import starIcon from "../../images/star.png";
+import arrowIcon from "../../images/arrow-right.png";
 import { Link } from "react-router-dom";
 
 import classes from "./MainContent.module.css";

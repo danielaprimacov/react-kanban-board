@@ -1,5 +1,7 @@
+import About from "../assets/components/AboutComponent/About";
+
 function AboutPage() {
-  return <p>About Page</p>;
+  return <About />;
 }
 
 export default AboutPage;

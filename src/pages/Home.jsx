@@ -1,4 +1,4 @@
-import MainContent from "../assets/components/MainContent";
+import MainContent from "../assets/components/MainContent/MainContent";
 
 function HomePage() {
   return <MainContent />;
