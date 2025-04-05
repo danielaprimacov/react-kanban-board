@@ -16,14 +16,6 @@ function Sidebar() {
           <Link to="/">Home</Link>
         </li>
         <li className={classes["sidebar-item"]}>
-          <img
-            className={classes.icon}
-            src={documentIcon}
-            alt="Document Icon"
-          />
-          <Link to="/about">About</Link>
-        </li>
-        <li className={classes["sidebar-item"]}>
           <img className={classes.icon} src={tasksIcon} alt="Tasks Icon" />
           <Link to="/board">Tasks</Link>
         </li>
@@ -34,6 +26,14 @@ function Sidebar() {
             alt="Statistic Icon"
           />
           <Link to="#">Statistics</Link>
+        </li>
+        <li className={classes["sidebar-item"]}>
+          <img
+            className={classes.icon}
+            src={documentIcon}
+            alt="Document Icon"
+          />
+          <Link to="/about">About</Link>
         </li>
       </ul>
     </div>

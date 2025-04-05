@@ -60,7 +60,7 @@ function MainContent() {
         <img src={starIcon} alt="Star Icon" />
         <p>Dive in now and elevate your productivity to new heights!</p>
       </div>
-      <Link to="/board" className={classes["create-board-btn"]}>
+      <Link to="/new-board" className={classes["create-board-btn"]}>
         Get Started{" "}
         <img className={classes.icon} src={arrowIcon} alt="Arrow Icon" />
       </Link>

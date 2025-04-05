@@ -1,5 +1,3 @@
-import { Outlet } from "react-router-dom";
-
 import KanbanProvider from "./KanbanProvider";
 import Navbar from "./LayoutComponent/Navbar";
 import Sidebar from "./LayoutComponent/Sidebar";
