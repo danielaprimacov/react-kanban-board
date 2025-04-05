@@ -47,7 +47,7 @@ NextGen Productivity is a modern Kanban board application built with React, Reac
    Open your terminal and run:
 
    ```bash
-   git clone https://github.com/danielaprimacov/react-kanban-board.git
+   git clone https://github.com/your-username/react-kanban-board.git
    cd react-kanban-board
    ```
 
@@ -225,8 +225,8 @@ Thank you for considering contributing to NextGen Productivity! Your contributio
    - Open your terminal and run:
 
      ```bash
-     git clone https://github.com/your-username/nextgen-productivity.git
-     cd nextgen-productivity
+     git clone https://github.com/your-username/react-kanban-board.git
+     cd kanban-board
      ```
 
 3. **Create a New Branch**
