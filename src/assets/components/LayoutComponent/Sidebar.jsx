@@ -25,7 +25,7 @@ function Sidebar() {
             src={statisticIcon}
             alt="Statistic Icon"
           />
-          <Link to="#">Statistics</Link>
+          <Link to="/statistics">Statistics</Link>
         </li>
         <li className={classes["sidebar-item"]}>
           <img

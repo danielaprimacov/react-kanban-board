@@ -8,6 +8,7 @@ import AboutPage from "./pages/AboutPage";
 import KanbanPage from "./pages/KanbanPage";
 import TaskDetailsPage from "./pages/TaskDetailsPage";
 import NewBoardPage from "./pages/NewBoardPage";
+import StatisticsPage from "./pages/StatisticsPage";
 import ErrorPage from "./pages/ErrorPage";
 import "./index.css";
 
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
         children: [{ path: ":taskId", element: <TaskDetailsPage /> }],
       },
       { path: "new-board", element: <NewBoardPage /> },
+      { path: "statistics", element: <StatisticsPage /> },
       { path: "*", element: <ErrorPage /> },
     ],
   },

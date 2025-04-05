@@ -1,6 +1,8 @@
 import { useState } from "react";
 import KanbanContext from "../KanbanContext";
 
+import classes from "./NewBoard.module.css";
+
 const NewKanbanProvider = ({ children }) => {
   // Start with no default columns
   const [columns, setColumns] = useState([]);
@@ -100,6 +102,9 @@ const NewKanbanProvider = ({ children }) => {
 
   return (
     <KanbanContext.Provider value={contextValue}>
+      <h1 className={classes["highlight-title"]}>
+        NewBoard: Your Canvas for Innovation
+      </h1>
       {children}
     </KanbanContext.Provider>
   );
