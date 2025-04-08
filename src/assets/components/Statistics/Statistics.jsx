@@ -14,8 +14,6 @@ function Statistics() {
     (task) => task.status.toLowerCase() === "done"
   );
 
-  console.log(doneTasks);
-
   // Calculate the date one month ago.
   const oneMonthAgo = new Date();
   oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
@@ -46,25 +44,25 @@ function Statistics() {
 
   return (
     <div className={classes.statistics}>
-      <h1>Statistics</h1>
+      <h1 className={classes["highlight-text"]}>Statistics</h1>
 
       {/* Monthly Statistics Section */}
       <section className={classes.section}>
         <h2>Monthly Completed Tasks</h2>
-        <p>
+        <p className={classes["total-tasks"]}>
           <strong>Total tasks completed in the last month:</strong>{" "}
           {tasksCompletedLastMonth.length}
         </p>
         <h3>Task Priority Breakdown (Monthly)</h3>
         <ul>
-          <li>
+          <li className={classes["low-priority"]}>
             <strong>Low Priority:</strong> {monthlyPriorityCounts.low || 0}
           </li>
-          <li>
+          <li className={classes["medium-priority"]}>
             <strong>Medium Priority:</strong>{" "}
             {monthlyPriorityCounts.medium || 0}
           </li>
-          <li>
+          <li className={classes["high-priority"]}>
             <strong>High Priority:</strong> {monthlyPriorityCounts.high || 0}
           </li>
         </ul>
@@ -73,19 +71,19 @@ function Statistics() {
       {/* Overall Tasks Section */}
       <section className={classes.section}>
         <h2>All Tasks Overview</h2>
-        <p>
+        <p className={classes["total-tasks"]}>
           <strong>Total tasks:</strong> {allTasks.length}
         </p>
         <h3>Overall Task Priority Breakdown</h3>
         <ul>
-          <li>
+          <li className={classes["low-priority"]}>
             <strong>Low Priority:</strong> {overallPriorityCounts.low || 0}
           </li>
-          <li>
+          <li className={classes["medium-priority"]}>
             <strong>Medium Priority:</strong>{" "}
             {overallPriorityCounts.medium || 0}
           </li>
-          <li>
+          <li className={classes["high-priority"]}>
             <strong>High Priority:</strong> {overallPriorityCounts.high || 0}
           </li>
         </ul>
