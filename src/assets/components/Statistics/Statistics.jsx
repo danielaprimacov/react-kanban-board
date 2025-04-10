@@ -87,8 +87,9 @@ function Statistics() {
             <strong>High Priority:</strong> {overallPriorityCounts.high || 0}
           </li>
         </ul>
-
-        <h3>Task List</h3>
+      </section>
+      <section className={classes.section}>
+        <h3>Tasks List</h3>
         <table className={classes.taskTable}>
           <thead>
             <tr>

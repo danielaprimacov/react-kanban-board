@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 .main-title {
@@ -57,7 +57,7 @@
   padding-top: 120px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   font-size: 1.1rem;
 }
 
@@ -98,6 +98,7 @@
 }
 
 .get-started {
+  margin-top: -70px;
   display: flex;
   align-items: center;
 }
